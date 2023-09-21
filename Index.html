@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON File Upload and Display</title>
+</head>
+<body>
+    <h1>Upload a JSON File</h1>
+    <input type="file" id="jsonFileInput" accept=".json">
+    
+    <div id="jsonDisplay">
+        <!-- JSON content will be displayed here -->
+    </div>
+
+    <script>
+        // Function to handle file input change
+        document.getElementById('jsonFileInput').addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            
+            if (!file) {
+                alert('Please select a JSON file.');
+                return;
+            }
+            
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                try {
+                    const jsonContent = JSON.parse(e.target.result);
+                    displayJSON(jsonContent);
+                } catch (error) {
+                    alert('Invalid JSON file. Please check the file format.');
+                }
+            };
+
+            reader.readAsText(file);
+        });
+
+        // Function to display JSON content
+        function displayJSON(jsonContent) {
+            const jsonDisplay = document.getElementById('jsonDisplay');
+            jsonDisplay.innerHTML = '<h2>JSON Content:</h2><pre>' + JSON.stringify(jsonContent, null, 2) + '</pre>';
+        }
+    </script>
+</body>
+</html>
