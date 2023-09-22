@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <audio controls>
+        <source src="Test.mp3" type="audio/mpeg">
+        Yo your browser aint supportin the music type, might wanna fix it.
+      </audio>
+    <head>
+        Music Player Thing
+    </head>
+    <h3>Mainly Used cause i wanna listen to music without wasting hotspot</h3>
+    <audio id="myAudio" src="test.mp3" preload="auto"></audio>
+    <button onclick="playAudio()">Play Audio</button>
+
+    <script>
+    function playAudio() {
+        var audio = document.getElementById("myAudio");
+        audio.play();
+    }
+    </script>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+        </ul>
+    </nav>
+    <footer>
+        <p>&copy; 2023 Bam</p>
+    </footer>
+</html>
